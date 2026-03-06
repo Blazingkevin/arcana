@@ -1,0 +1,25 @@
+{
+  "name": "arcana-protocol",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "sdk",
+    "demo",
+    "scripts",
+    "tests"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "dev": "turbo dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "npm@10.0.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

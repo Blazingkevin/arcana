@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.secret
+
+# Cairo / Scarb
+target/
+.snfoundry_cache/
+
+# ZK artifacts
+ptau/
+*.zkey
+*.wtns
+circuits/*/build/
+
+# Build artifacts
+dist/
+.next/
+out/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/settings.json
+.idea/

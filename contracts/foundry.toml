@@ -1,0 +1,7 @@
+[tool.snforge]
+exit_first = false
+
+[[tool.snforge.fork]]
+name = "sepolia"
+url = "https://starknet-sepolia.public.blastapi.io"
+block_id = { tag = "latest" }

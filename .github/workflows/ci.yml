@@ -59,10 +59,17 @@ jobs:
           ARCHIVE="starknet-foundry-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz"
           curl -L "https://github.com/foundry-rs/starknet-foundry/releases/download/v${VERSION}/${ARCHIVE}" -o snfoundry.tar.gz
           tar -xzf snfoundry.tar.gz
-          # Binary may be at root or inside a named subdirectory
           find . -name "snforge" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/snforge
           find . -name "sncast" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/sncast
           snforge --version
+
+      - name: Install universal-sierra-compiler
+        run: |
+          USC_VERSION=$(curl -s https://api.github.com/repos/software-mansion/universal-sierra-compiler/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+          curl -L "https://github.com/software-mansion/universal-sierra-compiler/releases/download/${USC_VERSION}/universal-sierra-compiler_${USC_VERSION}_x86_64-unknown-linux-musl.tar.gz" -o usc.tar.gz
+          tar -xzf usc.tar.gz
+          find . -name "universal-sierra-compiler" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/universal-sierra-compiler
+          universal-sierra-compiler --version
 
       - name: Cache Scarb target
         uses: actions/cache@v4

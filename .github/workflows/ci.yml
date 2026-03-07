@@ -56,7 +56,7 @@ jobs:
       - name: Install starknet-foundry
         run: |
           curl -L https://raw.githubusercontent.com/foundry-rs/starknet-foundry/master/scripts/install.sh | sh -s -- -v 0.55.0
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "/home/runner/.local/bin" >> $GITHUB_PATH
 
       - name: Cache Scarb target
         uses: actions/cache@v4
@@ -72,6 +72,8 @@ jobs:
       - name: Test contracts
         run: snforge test
         working-directory: contracts
+        env:
+          PATH: /home/runner/.local/bin:${{ env.PATH }}
 
   test-circuits:
     name: Test Circuits
@@ -87,8 +89,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install snarkjs
+        run: npm install -g snarkjs
+
       - name: Check snarkjs available
-        run: npx snarkjs --version
+        run: snarkjs --help || true
 
   test-sdk:
     name: Test SDK

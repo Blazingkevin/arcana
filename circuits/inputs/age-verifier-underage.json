@@ -1,0 +1,15 @@
+{
+  "nullifier": "0",
+  "credential_type": "4785430098085732647990584",
+  "issuer_id": "1",
+  "expires_at": "2026",
+  "current_year": "2024",
+  "min_age": "18",
+  "user_secret": "12345",
+  "birth_year": "2010",
+  "issuer_sig_R8x": "0",
+  "issuer_sig_R8y": "0",
+  "issuer_sig_S": "0",
+  "issuer_pub_key_x": "0",
+  "issuer_pub_key_y": "0"
+}

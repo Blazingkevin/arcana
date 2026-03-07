@@ -4,7 +4,7 @@ include "../templates/arcana_credential.circom";
 include "../../node_modules/circomlib/circuits/comparators.circom";
 include "../../node_modules/circomlib/circuits/poseidon.circom";
 // NOTE: eddsa-poseidon.circom, not eddsa.circom
-include "../../node_modules/circomlib/circuits/eddsa-poseidon.circom";
+include "../../node_modules/circomlib/circuits/eddsaposeidon.circom";
 
 // Proves: user's birth_year satisfies (current_year - birth_year) >= min_age
 // without revealing birth_year.

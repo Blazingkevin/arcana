@@ -2,7 +2,7 @@ pragma circom 2.1.0;
 
 // NOTE: EdDSAPoseidonVerifier lives in eddsa-poseidon.circom, not eddsa.circom
 include "../../node_modules/circomlib/circuits/poseidon.circom";
-include "../../node_modules/circomlib/circuits/eddsa-poseidon.circom";
+include "../../node_modules/circomlib/circuits/eddsaposeidon.circom";
 
 // Reusable component for all Arcana credential circuits.
 // Each credential circuit creates a component of this template and wires its signals.

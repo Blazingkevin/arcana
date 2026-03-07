@@ -65,7 +65,7 @@ jobs:
 
       - name: Install universal-sierra-compiler
         run: |
-          USC_VERSION=$(curl -s https://api.github.com/repos/software-mansion/universal-sierra-compiler/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+          USC_VERSION="v2.3.0"
           curl -L "https://github.com/software-mansion/universal-sierra-compiler/releases/download/${USC_VERSION}/universal-sierra-compiler_${USC_VERSION}_x86_64-unknown-linux-musl.tar.gz" -o usc.tar.gz
           tar -xzf usc.tar.gz
           find . -name "universal-sierra-compiler" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/universal-sierra-compiler

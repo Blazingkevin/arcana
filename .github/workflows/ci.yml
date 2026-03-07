@@ -55,8 +55,14 @@ jobs:
 
       - name: Install starknet-foundry
         run: |
-          curl -L https://raw.githubusercontent.com/foundry-rs/starknet-foundry/master/scripts/install.sh | sh -s -- -v 0.55.0
-          echo "$HOME/.local/share/starknet-foundry/bin" >> $GITHUB_PATH
+          VERSION="0.55.0"
+          ARCHIVE="starknet-foundry-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+          curl -L "https://github.com/foundry-rs/starknet-foundry/releases/download/v${VERSION}/${ARCHIVE}" -o snfoundry.tar.gz
+          tar -xzf snfoundry.tar.gz
+          # Binary may be at root or inside a named subdirectory
+          find . -name "snforge" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/snforge
+          find . -name "sncast" -type f | head -1 | xargs -I{} sudo mv {} /usr/local/bin/sncast
+          snforge --version
 
       - name: Cache Scarb target
         uses: actions/cache@v4
